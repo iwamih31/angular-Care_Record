@@ -1,0 +1,10 @@
+<div *ngIf="user">
+  <h2>{{user.name | uppercase}} 様 詳細情報</h2>
+  <div><span>id: </span>{{user.id}}</div>
+  <div>
+    <label for="user-name">利用者名: </label>
+    <input id="user-name" [(ngModel)]="user.name" placeholder="User name">
+  </div>
+</div>
+<button type="button" (click)="goBack()">戻る</button>
+<button type="button" (click)="save()">更新</button>
