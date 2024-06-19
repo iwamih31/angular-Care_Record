@@ -5,6 +5,10 @@
     <label for="user-name">利用者名: </label>
     <input id="user-name" [(ngModel)]="user.name" placeholder="User name">
   </div>
+  <div>
+    <label for="user-level">介護度: </label>
+    <input id="user-level" [(ngModel)]="user.level" placeholder="User level">
+  </div>
 </div>
 <button type="button" (click)="goBack()">戻る</button>
 <button type="button" (click)="save()">更新</button>

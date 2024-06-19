@@ -42,10 +42,10 @@ getUser(): void {
 	}
 
 	save(): void {
-  if (this.user) {
-    this.userService.updateUser(this.user)
-      .subscribe(() => this.goBack());
+    if (this.user) {
+      this.userService.updateUser(this.user)
+        .subscribe(() => this.goBack());
+    }
   }
-}
 
 }
