@@ -19,15 +19,15 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 20, name: 'Tornado', level: '介護2' }
     ];
     const actions = [
-      { id: 1, name: '起床',  date: '2024/06/01', time: '07:30', userId: 12 },
-      { id: 2, name: 'Bombasto', date: '2024/06/01', time: '08:00', userId: 13 },
-      { id: 3, name: 'Celeritas', date: '2024/06/01', time: '08:30', userId: 12 },
-      { id: 4, name: 'Magneta', date: '2024/06/01', time: '09:00', userId: 12 },
-      { id: 5, name: 'RubberMan', date: '2024/06/01', time: '10:00', userId: 12 },
-      { id: 6, name: 'Dynama', date: '2024/06/01', time: '12:00', userId: 12 },
-      { id: 7, name: 'Dr. IQ', date: '2024/06/01', time: '14:30', userId: 12 },
-      { id: 8, name: 'Magma', date: '2024/06/01', time: '15:00', userId: 12 },
-      { id: 9, name: 'ゆう', date: '2024/06/02', time: '17:30', userId: 12 }
+      { id: 1, action: '排尿', note: 'パ中', date: '2024/06/01', time: '07:30', userId: 12 },
+      { id: 2, action: '排便', note: 'オ軟中', date: '2024/06/01', time: '08:30', userId: 13 },
+      { id: 3, action: '排尿', note: 'ト中', date: '2024/06/01', time: '08:30', userId: 12 },
+      { id: 4, action: '水分', note: '40', date: '2024/06/01', time: '09:00', userId: 12 },
+      { id: 5, action: '排尿', note: 'ト中', date: '2024/06/01', time: '10:00', userId: 12 },
+      { id: 6, action: '排尿', note: 'ト中', date: '2024/06/01', time: '12:00', userId: 12 },
+      { id: 7, action: '水分', note: '20', date: '2024/06/01', time: '14:30', userId: 12 },
+      { id: 8, action: '排便', note: 'ト普少', date: '2024/06/01', time: '15:00', userId: 12 },
+      { id: 9, action: '水分', note: '40', date: '2024/06/02', time: '17:30', userId: 12 }
     ];
     return {users, actions};
   }
