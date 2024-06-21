@@ -18,7 +18,18 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 19, name: 'Magma', level: '介護1' },
       { id: 20, name: 'Tornado', level: '介護2' }
     ];
-    return {users};
+    const actions = [
+      { id: 1, name: '起床',  date: '2024/06/01', time: '07:30', userId: 12 },
+      { id: 2, name: 'Bombasto', date: '2024/06/01', time: '08:00', userId: 13 },
+      { id: 3, name: 'Celeritas', date: '2024/06/01', time: '08:30', userId: 12 },
+      { id: 4, name: 'Magneta', date: '2024/06/01', time: '09:00', userId: 12 },
+      { id: 5, name: 'RubberMan', date: '2024/06/01', time: '10:00', userId: 12 },
+      { id: 6, name: 'Dynama', date: '2024/06/01', time: '12:00', userId: 12 },
+      { id: 7, name: 'Dr. IQ', date: '2024/06/01', time: '14:30', userId: 12 },
+      { id: 8, name: 'Magma', date: '2024/06/01', time: '15:00', userId: 12 },
+      { id: 9, name: 'ゆう', date: '2024/06/02', time: '17:30', userId: 12 }
+    ];
+    return {users, actions};
   }
 
   // Overrides the genId method to ensure that a user always has an id.
