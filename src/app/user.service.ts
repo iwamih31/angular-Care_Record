@@ -13,11 +13,22 @@ export class UserService {
 
 	private usersUrl = 'api/users';  // Web APIのURL
 
-  constructor(private http: HttpClient,
-  private messageService: MessageService) { }
+  constructor(
+		private http: HttpClient,
+  	private messageService: MessageService
+	) { }
 
 	/** サーバーから利用者を取得する */
 	getUsers(): Observable<User[]> {
+		return this.http.get<User[]>(this.usersUrl)
+			.pipe(
+				tap(users => this.log('fetched users')),
+				catchError(this.handleError<User[]>('getUsers', []))
+			);
+	}
+	
+	/** サーバーから行動を取得する */
+	getActions(): Observable<User[]> {
 		return this.http.get<User[]>(this.usersUrl)
 			.pipe(
 				tap(users => this.log('fetched users')),
