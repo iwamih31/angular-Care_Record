@@ -9,9 +9,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class ActionService {
 
-	private usersUrl = 'api/users';  // Web APIのURL
+  	private usersUrl = 'api/users';  // Web APIのURL
 
   constructor(
 		private http: HttpClient,
@@ -20,6 +20,15 @@ export class UserService {
 
 	/** サーバーから利用者を取得する */
 	getUsers(): Observable<User[]> {
+		return this.http.get<User[]>(this.usersUrl)
+			.pipe(
+				tap(users => this.log('fetched users')),
+				catchError(this.handleError<User[]>('getUsers', []))
+			);
+	}
+	
+	/** サーバーから行動を取得する */
+	getActions(): Observable<User[]> {
 		return this.http.get<User[]>(this.usersUrl)
 			.pipe(
 				tap(users => this.log('fetched users')),
@@ -65,17 +74,17 @@ export class UserService {
 		);
 	}
 
-	/* 検索語を含む利用者を取得する */
-	searchUsers(term: string): Observable<User[]> {
-		if (!term.trim()) {
-			// 検索語がない場合、空の利用者配列を返す
-			return of([]);
-		}
-		return this.http.get<User[]>(`${this.usersUrl}/?name=${term}`).pipe(
-			tap(_ => this.log(`found users matching "${term}"`)),
-			catchError(this.handleError<User[]>('searchUsers', []))
-		);
-	}
+  /* 検索語を含む利用者を取得する */
+  searchUsers(term: string): Observable<User[]> {
+    if (!term.trim()) {
+      // 検索語がない場合、空の利用者配列を返す
+      return of([]);
+    }
+    return this.http.get<User[]>(`${this.usersUrl}/?name=${term}`).pipe(
+      tap(_ => this.log(`found users matching "${term}"`)),
+      catchError(this.handleError<User[]>('searchUsers', []))
+    );
+  }
 
 	/** UserServiceのメッセージをMessageServiceを使って記録 */
 	private log(message: string) {
@@ -83,24 +92,24 @@ export class UserService {
 	}
 
 	/**
-	* 失敗したHttp操作を処理します。
-	* アプリを持続させます。
-	*
-	* @param operation - 失敗した操作の名前
-	* @param result - observableな結果として返す任意の値
-	*/
-	private handleError<T>(operation = 'operation', result?: T) {
-		return (error: any): Observable<T> => {
+   * 失敗したHttp操作を処理します。
+   * アプリを持続させます。
+   *
+   * @param operation - 失敗した操作の名前
+   * @param result - observableな結果として返す任意の値
+   */
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
 
-			// TODO: リモート上のロギング基盤にエラーを送信する
-			console.error(error); // かわりにconsoleに出力
+      // TODO: リモート上のロギング基盤にエラーを送信する
+      console.error(error); // かわりにconsoleに出力
 
-			// TODO: ユーザーへの開示のためにエラーの変換処理を改善する
-			this.log(`${operation} failed: ${error.message}`);
+      // TODO: ユーザーへの開示のためにエラーの変換処理を改善する
+      this.log(`${operation} failed: ${error.message}`);
 
-			// 空の結果を返して、アプリを持続可能にする
-			return of(result as T);
-		};
-	}
+      // 空の結果を返して、アプリを持続可能にする
+      return of(result as T);
+    };
+  }
 
 }
