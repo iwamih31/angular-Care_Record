@@ -1,4 +1,4 @@
-export interface User {
+export interface Action {
   id: number;
   action: string;
   note: string;

@@ -5,6 +5,7 @@ import { Observable, catchError, of, tap } from 'rxjs';
 import { User } from './user';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Action } from './action';
 
 @Injectable({
   providedIn: 'root'
@@ -12,27 +13,19 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class ActionService {
 
   	private usersUrl = 'api/users';  // Web APIのURL
+  	private actionsUrl = 'api/actions';  // Web APIのURL
 
   constructor(
 		private http: HttpClient,
   	private messageService: MessageService
 	) { }
-
-	/** サーバーから利用者を取得する */
-	getUsers(): Observable<User[]> {
-		return this.http.get<User[]>(this.usersUrl)
-			.pipe(
-				tap(users => this.log('fetched users')),
-				catchError(this.handleError<User[]>('getUsers', []))
-			);
-	}
 	
 	/** サーバーから行動を取得する */
-	getActions(): Observable<User[]> {
-		return this.http.get<User[]>(this.usersUrl)
+	getActions(): Observable<Action[]> {
+		return this.http.get<Action[]>(this.actionsUrl)
 			.pipe(
-				tap(users => this.log('fetched users')),
-				catchError(this.handleError<User[]>('getUsers', []))
+				tap(actions => this.log('fetched actions')),
+				catchError(this.handleError<Action[]>('getActions', []))
 			);
 	}
 
