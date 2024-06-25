@@ -28,7 +28,7 @@ a {
   color: #fff;
   text-align: center;
   width: 100%;
-  min-width: 70px;
+  min-width: 170px;
   margin: .5rem auto;
   box-sizing: border-box;
 
@@ -40,7 +40,7 @@ a {
 
 @media (min-width: 600px) {
   a {
-    width: 15%;
+    width: 18%;
     box-sizing: content-box;
   }
 }

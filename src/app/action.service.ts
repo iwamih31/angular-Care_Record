@@ -21,11 +21,10 @@ export class ActionService {
 	) { }
 	
 	/** サーバーから行動を取得する */
-	getActions(date: string): Observable<Action[]> {
-    const url = `${this.actionsUrl}/${date}`;
-		return this.http.get<Action[]>(url).pipe(
+	getActions(): Observable<Action[]> {
+		return this.http.get<Action[]>(this.actionsUrl).pipe(
 				tap(actions => this.log('fetched actions')),
-				catchError(this.handleError<Action[]>(`getActions date=${date}`, []))
+				catchError(this.handleError<Action[]>('getActions', []))
 			);
 	}
 

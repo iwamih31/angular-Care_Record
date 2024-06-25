@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgFor} from '@angular/common';
+import { NgFor, NgIf,} from '@angular/common';
 import { RouterLink, RouterModule } from '@angular/router';
 
 import { User } from '../user';
@@ -14,7 +14,7 @@ import { ActionService } from '../action.service';
     standalone: true,
     templateUrl: './dashboard.component.html',
     styleUrl: './dashboard.component.css',
-    imports: [NgFor, RouterLink, RouterModule, UserSearchComponent]
+    imports: [NgFor, NgIf, RouterLink, RouterModule, UserSearchComponent]
 })
 export class DashboardComponent implements OnInit {
   users: User[] = [];
@@ -27,7 +27,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUseres();
-    this.getActions('2024/06/15');
+    this.getActions('2024/06/01');
   }
 
   getUseres(): void {
@@ -37,8 +37,10 @@ export class DashboardComponent implements OnInit {
   }
 
   getActions(date: string): void {
-    this.actionService.getActions(date).subscribe(
-      actions => this.actions = actions.slice(0, 10)
+    this.actionService.getActions().subscribe(
+      actions => {
+        this.actions = actions.slice(0, 10)
+      }
     );
   }
 
