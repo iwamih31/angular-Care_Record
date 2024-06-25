@@ -27,16 +27,19 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUseres();
+    this.getActions('2024/06/15');
   }
 
   getUseres(): void {
-    this.userService.getUsers()
-      .subscribe(users => this.users = users.slice(0, 10));
+    this.userService.getUsers().subscribe(
+      users => this.users = users.slice(0, 10)
+    );
   }
 
-    getActions(date: string): void {
-    this.actionService.getActions()
-      .subscribe(actions => this.actions = actions.slice(0, 10));
+  getActions(date: string): void {
+    this.actionService.getActions(date).subscribe(
+      actions => this.actions = actions.slice(0, 10)
+    );
   }
 
 }

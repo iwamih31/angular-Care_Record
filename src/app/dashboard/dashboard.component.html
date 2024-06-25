@@ -3,6 +3,9 @@
   <a *ngFor="let user of users" routerLink="/detail/{{user.id}}">
     {{user.name}}
   </a>
+  <a *ngFor="let action of actions" routerLink="/detail/{{action.userId}}">
+    {{action.action}}
+  </a>
 </div>
 
 <app-user-search></app-user-search>

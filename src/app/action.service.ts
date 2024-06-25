@@ -21,20 +21,20 @@ export class ActionService {
 	) { }
 	
 	/** サーバーから行動を取得する */
-	getActions(): Observable<Action[]> {
-		return this.http.get<Action[]>(this.actionsUrl)
-			.pipe(
+	getActions(date: string): Observable<Action[]> {
+    const url = `${this.actionsUrl}/${date}`;
+		return this.http.get<Action[]>(url).pipe(
 				tap(actions => this.log('fetched actions')),
-				catchError(this.handleError<Action[]>('getActions', []))
+				catchError(this.handleError<Action[]>(`getActions date=${date}`, []))
 			);
 	}
 
   /** IDにより利用者を取得する。見つからなかった場合は404を返却する。 */
-	getUser(id: number): Observable<User> {
-		const url = `${this.usersUrl}/${id}`;
+	getAction(userId: number): Observable<User> {
+		const url = `${this.usersUrl}/${userId}`;
 		return this.http.get<User>(url).pipe(
-			tap(_ => this.log(`fetched user id=${id}`)),
-			catchError(this.handleError<User>(`getUser id=${id}`))
+			tap(_ => this.log(`fetched user id=${userId}`)),
+			catchError(this.handleError<User>(`getUser id=${userId}`))
 		);
 	}
 
