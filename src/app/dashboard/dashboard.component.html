@@ -1,7 +1,7 @@
 <h2>利用者様</h2>
 <div class="users-menu">
   <div *ngFor="let user of users">
-    <a routerLink="/detail/{{user.id}}">
+    <a routerLink="/action/{{user.id}}">
       {{user.name}}
     </a>
     <div *ngFor="let action of actions">
