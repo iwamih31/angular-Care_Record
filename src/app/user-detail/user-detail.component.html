@@ -1,6 +1,8 @@
 <div *ngIf="user">
   <h2>{{user.name | uppercase}} 様 詳細情報</h2>
-  <div><span>id: </span>{{user.id}}</div>
+  <div>
+    <label id="user-id">id: </label>{{user.id}}
+  </div>
   <div>
     <label for="user-name">利用者名: </label>
     <input id="user-name" [(ngModel)]="user.name" placeholder="User name">

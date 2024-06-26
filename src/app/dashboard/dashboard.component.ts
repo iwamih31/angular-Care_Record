@@ -19,6 +19,7 @@ import { ActionService } from '../action.service';
 export class DashboardComponent implements OnInit {
   users: User[] = [];
   actions: Action[] = [];
+  date: string = '2024/06/01';
 
   constructor(
     private userService: UserService,
@@ -27,7 +28,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUseres();
-    this.getActions('2024/06/01');
+    this.getActions();
   }
 
   getUseres(): void {
@@ -36,10 +37,10 @@ export class DashboardComponent implements OnInit {
     );
   }
 
-  getActions(date: string): void {
+  getActions(): void {
     this.actionService.getActions().subscribe(
       actions => {
-        this.actions = actions.slice(0, 10)
+        this.actions = actions
       }
     );
   }

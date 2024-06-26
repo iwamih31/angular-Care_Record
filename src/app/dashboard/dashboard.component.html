@@ -6,13 +6,12 @@
     </a>
     <div *ngFor="let action of actions">
       <div *ngIf="action.userId === user.id">
-        <div *ngIf="action.date === '2024/06/01'">
+        <div *ngIf="action.date === date">
           {{ action.time }}: {{ action.action }}: {{ action.note }}
         </div>
       </div>
     </div>
   </div>
 </div>
-
 
 <app-user-search></app-user-search>
