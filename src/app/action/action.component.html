@@ -1,6 +1,13 @@
 <div id="search-component">
   <label for="search-box">利用者検索</label>
   <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+  <ul class="search-result">
+    <li *ngFor="let user of users$ | async">
+      <a routerLink="/detail/{{user.id}}">
+        {{user.name}}
+      </a>
+    </li>
+  </ul>
   <label for="action">記録</label>
   <input  id="action" type="text" [(ngModel)]="action" />
   <div *ngFor="let action of actions">
@@ -11,11 +18,4 @@
     </div>
   </div>
 
-  <ul class="search-result">
-    <li *ngFor="let user of users$ | async">
-      <a routerLink="/detail/{{user.id}}">
-        {{user.name}}
-      </a>
-    </li>
-  </ul>
 </div>
