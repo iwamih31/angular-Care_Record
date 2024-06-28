@@ -1,19 +1,26 @@
-<div id="search-component">
-  <label for="search-box">利用者検索</label>
-  <input #searchBox id="search-box" (input)="search(searchBox.value)" />
-  <ul class="search-result">
-    <li *ngFor="let user of users$ | async">
-      <a routerLink="/detail/{{user.id}}">
-        {{user.name}}
-      </a>
-    </li>
-  </ul>
-  <label for="action">記録</label>
-  <input  id="action" type="text" [(ngModel)]="action" />
-  <div *ngFor="let action of actions">
-    <div *ngIf="action.userId === userId">
-      <div *ngIf="action.date === date">
-        {{ action.time }}: {{ action.action }}: {{ action.note }}
+<div id="action-component">
+
+  <div>
+    <label for="new-time">時刻: </label>
+    <input id="new-time" #time />
+    <label for="new-action">行動: </label>
+    <input id="new-action" #action />
+    <label for="new-note">内容: </label>
+    <input id="new-note" #note />
+    <!-- (click) 入力値をadd()に渡したあと、入力をクリアする -->
+    <button type="button" class="add-button" (click)="
+      add(action.value, note.value, date, time.value, userId);
+      action.value='';
+      note.value='';
+      time.value='';
+      ">
+      行動追加
+    </button>
+    <div *ngFor="let action of actions">
+      <div *ngIf="action.userId === userId">
+        <div *ngIf="action.date === date">
+          {{ action.time }}: {{ action.action }}: {{ action.note }}
+        </div>
       </div>
     </div>
   </div>

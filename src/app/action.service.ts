@@ -50,10 +50,10 @@ export class ActionService {
 	}
 
 	/** POST: サーバーに新しい利用者を登録する */
-	addUser(user: User): Observable<User> {
-		return this.http.post<User>(this.usersUrl, user, this.httpOptions).pipe(
-			tap((newUser: User) => this.log(`added user w/ id=${newUser.id}`)),
-			catchError(this.handleError<User>('addUser'))
+	addAction(action: Action): Observable<Action> {
+		return this.http.post<Action>(this.actionsUrl, action, this.httpOptions).pipe(
+			tap((newAction: Action) => this.log(`added action w/ id=${newAction.id}`)),
+			catchError(this.handleError<Action>('addAction'))
 		);
 	}
 

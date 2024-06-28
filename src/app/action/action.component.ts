@@ -29,6 +29,7 @@ export class ActionComponent implements OnInit {
   private searchTerms = new Subject<string>();
   actions: Action[] = [];
   action = '';
+  
 
   constructor(
     private readonly route: ActivatedRoute,
@@ -57,7 +58,6 @@ export class ActionComponent implements OnInit {
     );
   }
 
-  
   getActions(): void {
     this.actionService.getActions().subscribe(
       actions => {
@@ -65,4 +65,24 @@ export class ActionComponent implements OnInit {
       }
     );
   }
+
+  
+  add( 
+    action: string,
+    note: string,
+    date: string,
+    time: string,
+    userId: number
+  ): void {
+  action = action.trim();
+  note = note.trim();
+  date = date.trim();
+  time = time.trim();
+  if (!action) { return; }
+  this.actionService.addAction({ action, note, date, time, userId } as Action)
+    .subscribe(action => {
+      this.actions.push(action);
+    });
+  }
+
 }
