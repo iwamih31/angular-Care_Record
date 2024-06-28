@@ -1,6 +1,13 @@
 <div id="action-component">
-
   <div>
+    <span id="user-name">氏名: {{ userName }}</span>
+    <div *ngFor="let action of actions">
+      <div *ngIf="action.userId === userId">
+        <div *ngIf="action.date === date">
+          {{ action.time }}: {{ action.action }}: {{ action.note }}
+        </div>
+      </div>
+    </div>
     <label for="new-time">時刻: </label>
     <input id="new-time" #time />
     <label for="new-action">行動: </label>
@@ -16,13 +23,6 @@
       ">
       行動追加
     </button>
-    <div *ngFor="let action of actions">
-      <div *ngIf="action.userId === userId">
-        <div *ngIf="action.date === date">
-          {{ action.time }}: {{ action.action }}: {{ action.note }}
-        </div>
-      </div>
-    </div>
   </div>
 
 </div>

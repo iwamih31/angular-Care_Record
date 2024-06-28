@@ -24,6 +24,7 @@ import { Action } from '../action';
 })
 export class ActionComponent implements OnInit {
   userId = 0;
+  userName = ''
   date: string = '';
   users$!: Observable<User[]>;
   private searchTerms = new Subject<string>();
@@ -45,6 +46,7 @@ export class ActionComponent implements OnInit {
   ngOnInit(): void {
     this.getActions();
     this.userId = Number(this.route.snapshot.paramMap.get('userId'));
+    this.getUserName();
     this.date = '2024/06/01';
     this.users$ = this.searchTerms.pipe(
       // 各キーストロークの後、検索前に300ms待つ
@@ -56,6 +58,12 @@ export class ActionComponent implements OnInit {
       // 検索語が変わる度に、新しい検索observableにスイッチする
       switchMap((term: string) => this.userService.searchUsers(term)),
     );
+  }
+
+    getUserName(): void {
+    const id = this.userId;
+    this.userService.getUser(id)
+      .subscribe(user => this.userName = user.name);
   }
 
   getActions(): void {

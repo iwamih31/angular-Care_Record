@@ -27,15 +27,15 @@ export class UserDetailComponent {
 		private location: Location,
 	) {}
 
-ngOnInit(): void {
-  this.getUser();
-}
+  ngOnInit(): void {
+    this.getUser();
+  }
 
-getUser(): void {
-  const id = Number(this.route.snapshot.paramMap.get('id'));
-  this.userService.getUser(id)
-    .subscribe(user => this.user = user);
-}
+  getUser(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.userService.getUser(id)
+      .subscribe(user => this.user = user);
+  }
 
 	goBack(): void {
 		this.location.back();
