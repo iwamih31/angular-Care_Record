@@ -1,19 +1,27 @@
 <div>
-  <label for="new-user">利用者名: </label>
-  <input id="new-user" #userName />
-
-  <!-- (click) 入力値をadd()に渡したあと、入力をクリアする -->
-  <button type="button" class="add-button" (click)="add(userName.value); userName.value=''">
-    新規登録
-  </button>
+<label for="new-time">時刻: </label>
+<input id="new-time" #time />
+<label for="new-action">行動: </label>
+<input id="new-action" #action />
+<label for="new-note">内容: </label>
+<input id="new-note" #note />
+<!-- (click) 入力値をadd()に渡したあと、入力をクリアする -->
+<button type="button" class="add-button" (click)="
+      add(action.value, note.value, time.value);
+      action.value='';
+      note.value='';
+      time.value='';
+      ">
+  ToDo追加
+</button>
 </div>
 
 <h2>利用者リスト</h2>
-<ul class="users">
-  <li *ngFor="let user of users">
-    <a routerLink="/detail/{{user.id}}">
-      <span class="badge">{{user.id}}</span> {{user.name}}
+<ul class="routine">
+  <li *ngFor="let todo of routine">
+    <a routerLink="/detail/{{todo.id}}">
+      <span class="badge">{{todo.id}}</span> {{todo.action}}
     </a>
-    <button type="button" class="delete" title="delete user" (click)="delete(user)">x</button>
+    <button type="button" class="delete" title="delete todo" (click)="delete(todo)">x</button>
   </li>
 </ul>
