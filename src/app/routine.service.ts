@@ -2,16 +2,16 @@ import { Injectable } from '@angular/core';
 
 import { Observable, catchError, of, tap } from 'rxjs';
 
-import { User } from './user';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Routine } from './routine';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RoutineService {
 
-  private usersUrl = 'api/users';  // Web APIのURL
+  private routineUrl = 'api/routine';  // Web APIのURL
 
   constructor(
 		private http: HttpClient,
@@ -19,20 +19,20 @@ export class RoutineService {
 	) { }
 
 	/** サーバーから利用者を取得する */
-	getUsers(): Observable<User[]> {
-		return this.http.get<User[]>(this.usersUrl)
+	getRoutine(): Observable<Routine[]> {
+		return this.http.get<Routine[]>(this.routineUrl)
 			.pipe(
-				tap(users => this.log('fetched users')),
-				catchError(this.handleError<User[]>('getUsers', []))
+				tap(routine => this.log('fetched routine')),
+				catchError(this.handleError<Routine[]>('getRoutine', []))
 			);
 	}
 
   /** IDにより利用者を取得する。見つからなかった場合は404を返却する。 */
-	getUser(id: number): Observable<User> {
-		const url = `${this.usersUrl}/${id}`;
-		return this.http.get<User>(url).pipe(
-			tap(_ => this.log(`fetched user id=${id}`)),
-			catchError(this.handleError<User>(`getUser id=${id}`))
+	getToDo(id: number): Observable<Routine> {
+		const url = `${this.routineUrl}/${id}`;
+		return this.http.get<Routine>(url).pipe(
+			tap(_ => this.log(`fetched routine id=${id}`)),
+			catchError(this.handleError<Routine>(`getToDo id=${id}`))
 		);
 	}
 
@@ -41,45 +41,45 @@ export class RoutineService {
 	};
 
 	/** PUT: サーバー上で利用者を更新 */
-	updateUser(user: User): Observable<any> {
-		return this.http.put(this.usersUrl, user, this.httpOptions).pipe(
-			tap(_ => this.log(`updated user id=${user.id}`)),
-			catchError(this.handleError<any>('updateUser'))
+	updateRoutine(routine: Routine): Observable<any> {
+		return this.http.put(this.routineUrl, routine, this.httpOptions).pipe(
+			tap(_ => this.log(`updated routine id=${routine.id}`)),
+			catchError(this.handleError<any>('updateRoutine'))
 		);
 	}
 
 	/** POST: サーバーに新しい利用者を登録する */
-	addUser(user: User): Observable<User> {
-		return this.http.post<User>(this.usersUrl, user, this.httpOptions).pipe(
-			tap((newUser: User) => this.log(`added user w/ id=${newUser.id}`)),
-			catchError(this.handleError<User>('addUser'))
+	addRoutine(routine: Routine): Observable<Routine> {
+		return this.http.post<Routine>(this.routineUrl, routine, this.httpOptions).pipe(
+			tap((newRoutine: Routine) => this.log(`added routine w/ id=${newRoutine.id}`)),
+			catchError(this.handleError<Routine>('addRoutine'))
 		);
 	}
 
 	/** DELETE: サーバーから利用者を削除 */
-	deleteUser(id: number): Observable<User> {
-		const url = `${this.usersUrl}/${id}`;
-		return this.http.delete<User>(url, this.httpOptions).pipe(
-			tap(_ => this.log(`deleted user id=${id}`)),
-			catchError(this.handleError<User>('deleteUser'))
+	deleteRoutine(id: number): Observable<Routine> {
+		const url = `${this.routineUrl}/${id}`;
+		return this.http.delete<Routine>(url, this.httpOptions).pipe(
+			tap(_ => this.log(`deleted routine id=${id}`)),
+			catchError(this.handleError<Routine>('deleteRoutine'))
 		);
 	}
 
 	/* 検索語を含む利用者を取得する */
-	searchUsers(term: string): Observable<User[]> {
+	searchRoutine(term: string): Observable<Routine[]> {
 		if (!term.trim()) {
 			// 検索語がない場合、空の利用者配列を返す
 			return of([]);
 		}
-		return this.http.get<User[]>(`${this.usersUrl}/?name=${term}`).pipe(
-			tap(_ => this.log(`found users matching "${term}"`)),
-			catchError(this.handleError<User[]>('searchUsers', []))
+		return this.http.get<Routine[]>(`${this.routineUrl}/?name=${term}`).pipe(
+			tap(_ => this.log(`found routine matching "${term}"`)),
+			catchError(this.handleError<Routine[]>('searchRoutine', []))
 		);
 	}
 
-	/** UserServiceのメッセージをMessageServiceを使って記録 */
+	/** RoutineServiceのメッセージをMessageServiceを使って記録 */
 	private log(message: string) {
-		this.messageService.add(`UserService: ${message}`);
+		this.messageService.add(`RoutineService: ${message}`);
 	}
 
 	/**

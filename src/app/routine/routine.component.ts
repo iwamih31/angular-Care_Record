@@ -6,9 +6,9 @@ import {
 } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { User } from '../user';
-import { UserService } from '../user.service';
 import { RouterModule } from '@angular/router';
+import { Routine } from '../routine';
+import { RoutineService } from '../routine.service';
 
 @Component({
   selector: 'app-routine',
@@ -25,31 +25,31 @@ import { RouterModule } from '@angular/router';
 })
 export class RoutineComponent {
 
-  users: User[] = [];
+  routine: Routine[] = [];
 
-  constructor(private userService: UserService) { }
+  constructor(private routineService: RoutineService) { }
 
   ngOnInit(): void {
-    this.getUsers();
+    this.getRoutine();
   }
 
-  getUsers(): void {
-    this.userService.getUsers()
-    .subscribe(users => this.users = users);
+  getRoutine(): void {
+    this.routineService.getRoutine()
+    .subscribe(routine => this.routine = routine);
   }
 
   add(name: string): void {
   name = name.trim();
   if (!name) { return; }
-  this.userService.addUser({ name } as User)
-    .subscribe(user => {
-      this.users.push(user);
+  this.routineService.addRoutine({ name } as Routine)
+    .subscribe(routine => {
+      this.routine.push(routine);
     });
   }
 
-  delete(user: User): void {
-    this.users = this.users.filter(h => h !== user);
-    this.userService.deleteUser(user.id).subscribe();
+  delete(user: Routine): void {
+    this.routine = this.routine.filter(h => h !== user);
+    this.routineService.deleteRoutine(user.id).subscribe();
   }
 
 }
