@@ -38,10 +38,18 @@ export class RoutineComponent {
     .subscribe(routine => this.routine = routine);
   }
 
-  add(name: string): void {
-  name = name.trim();
-  if (!name) { return; }
-  this.routineService.addRoutine({ name } as Routine)
+    add( 
+    action: string,
+    note: string,
+    time: string,
+  ): void {
+  action = action.trim();
+  note = note.trim();
+  const date = '予定';
+  time = time.trim();
+  const userId = 0;
+  if (!action) { return; }
+  this.routineService.addRoutine({ action, note, date, time, userId } as Routine)
     .subscribe(routine => {
       this.routine.push(routine);
     });
