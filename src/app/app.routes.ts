@@ -12,4 +12,5 @@ export const routes: Routes = [
 	{ path: 'dashboard', component: DashboardComponent },
 	{ path: 'detail/:id', component: UserDetailComponent },
 	{ path: 'action/:userId', component:ActionComponent },
+	{ path: 'todo/:userId', component:ToDoComponent },
 ];
