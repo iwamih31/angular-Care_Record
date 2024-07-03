@@ -1,15 +1,15 @@
-<div *ngIf="user">
-  <h2>{{user.name | uppercase}} 様 詳細情報</h2>
+<div *ngIf="routine">
+  <h2>{{routine.action | uppercase}} 様 詳細情報</h2>
   <div>
-    <label id="user-id">id: </label>{{user.id}}
+    <label id="routine-id">id: </label>{{routine.id}}
   </div>
   <div>
-    <label for="user-name">利用者名: </label>
-    <input id="user-name" [(ngModel)]="user.name" placeholder="User name">
+    <label for="routine-action">利用者名: </label>
+    <input id="routine-action" [(ngModel)]="routine.action" placeholder="Routine action">
   </div>
   <div>
-    <label for="user-level">介護度: </label>
-    <input id="user-level" [(ngModel)]="user.level" placeholder="User level">
+    <label for="routine-note">介護度: </label>
+    <input id="routine-note" [(ngModel)]="routine.note" placeholder="Routine note">
   </div>
 </div>
 <button type="button" (click)="goBack()">戻る</button>
