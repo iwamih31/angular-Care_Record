@@ -2,10 +2,10 @@ import {Component, Input} from '@angular/core';
 import { NgIf, UpperCasePipe, Location,} from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { ActionService } from '../user.service';
+import { RoutineService } from '../routine.service';
 
 
-import {Action} from '../action';
+import {Routine} from '../routine';
 
 @Component({
   selector: 'app-todo',
@@ -19,22 +19,22 @@ import {Action} from '../action';
   styleUrl: './todo.component.css'
 })
 export class ToDoComponent {
-  @Input() user?: Action;
+  @Input() routine?: Routine;
 
   constructor(
 		private readonly route: ActivatedRoute,
-		private userService: ActionService,
+		private routineService: RoutineService,
 		private location: Location,
 	) {}
 
   ngOnInit(): void {
-    this.getAction();
+    this.getRoutine();
   }
 
-  getAction(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.userService.getAction(id)
-      .subscribe(user => this.user = user);
+  getRoutine(): void {
+    const todoId = Number(this.route.snapshot.paramMap.get('todoId'));
+    this.routineService.getToDo(todoId)
+      .subscribe(routine => this.routine = routine);
   }
 
 	goBack(): void {
@@ -42,8 +42,8 @@ export class ToDoComponent {
 	}
 
 	save(): void {
-    if (this.user) {
-      this.userService.updateAction(this.user)
+    if (this.routine) {
+      this.routineService.updateRoutine(this.routine)
         .subscribe(() => this.goBack());
     }
   }
