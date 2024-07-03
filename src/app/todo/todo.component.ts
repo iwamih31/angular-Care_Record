@@ -2,10 +2,10 @@ import {Component, Input} from '@angular/core';
 import { NgIf, UpperCasePipe, Location,} from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { UserService } from '../user.service';
+import { ActionService } from '../user.service';
 
 
-import {User} from '../user';
+import {Action} from '../action';
 
 @Component({
   selector: 'app-todo',
@@ -19,21 +19,21 @@ import {User} from '../user';
   styleUrl: './todo.component.css'
 })
 export class ToDoComponent {
-  @Input() user?: User;
+  @Input() user?: Action;
 
   constructor(
 		private readonly route: ActivatedRoute,
-		private userService: UserService,
+		private userService: ActionService,
 		private location: Location,
 	) {}
 
   ngOnInit(): void {
-    this.getUser();
+    this.getAction();
   }
 
-  getUser(): void {
+  getAction(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.userService.getUser(id)
+    this.userService.getAction(id)
       .subscribe(user => this.user = user);
   }
 
@@ -43,7 +43,7 @@ export class ToDoComponent {
 
 	save(): void {
     if (this.user) {
-      this.userService.updateUser(this.user)
+      this.userService.updateAction(this.user)
         .subscribe(() => this.goBack());
     }
   }
