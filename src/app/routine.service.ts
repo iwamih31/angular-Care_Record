@@ -18,8 +18,8 @@ export class RoutineService {
   	private messageService: MessageService
 	) { }
 
-	/** サーバーから利用者を取得する */
-	getRoutine(): Observable<Routine[]> {
+	/** サーバーから行動を取得する */
+	getRoutine(action: string, date: string): Observable<Routine[]> {
 		return this.http.get<Routine[]>(this.routineUrl)
 			.pipe(
 				tap(routine => this.log('fetched routine')),
@@ -27,7 +27,7 @@ export class RoutineService {
 			);
 	}
 
-  /** IDにより利用者を取得する。見つからなかった場合は404を返却する。 */
+  /** IDにより行動を取得する。見つからなかった場合は404を返却する。 */
 	getToDo(id: number): Observable<Routine> {
 		const url = `${this.routineUrl}/${id}`;
 		return this.http.get<Routine>(url).pipe(
@@ -40,7 +40,7 @@ export class RoutineService {
 		headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 	};
 
-	/** PUT: サーバー上で利用者を更新 */
+	/** PUT: サーバー上で行動を更新 */
 	updateRoutine(routine: Routine): Observable<any> {
 		return this.http.put(this.routineUrl, routine, this.httpOptions).pipe(
 			tap(_ => this.log(`updated routine id=${routine.id}`)),
@@ -48,7 +48,7 @@ export class RoutineService {
 		);
 	}
 
-	/** POST: サーバーに新しい利用者を登録する */
+	/** POST: サーバーに新しい行動を登録する */
 	addRoutine(routine: Routine): Observable<Routine> {
 		return this.http.post<Routine>(this.routineUrl, routine, this.httpOptions).pipe(
 			tap((newRoutine: Routine) => this.log(`added routine w/ id=${newRoutine.id}`)),
@@ -56,7 +56,7 @@ export class RoutineService {
 		);
 	}
 
-	/** DELETE: サーバーから利用者を削除 */
+	/** DELETE: サーバーから行動を削除 */
 	deleteRoutine(id: number): Observable<Routine> {
 		const url = `${this.routineUrl}/${id}`;
 		return this.http.delete<Routine>(url, this.httpOptions).pipe(
@@ -65,10 +65,10 @@ export class RoutineService {
 		);
 	}
 
-	/* 検索語を含む利用者を取得する */
+	/* 検索語を含む行動を取得する */
 	searchRoutine(term: string): Observable<Routine[]> {
 		if (!term.trim()) {
-			// 検索語がない場合、空の利用者配列を返す
+			// 検索語がない場合、空の行動配列を返す
 			return of([]);
 		}
 		return this.http.get<Routine[]>(`${this.routineUrl}/?name=${term}`).pipe(
