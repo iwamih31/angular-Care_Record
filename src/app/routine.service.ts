@@ -19,6 +19,15 @@ export class RoutineService {
 	) { }
 
 	/** サーバーから行動を取得する */
+	getRoutineAll(): Observable<Routine[]> {
+		return this.http.get<Routine[]>(this.routineUrl)
+			.pipe(
+				tap(routine => this.log('fetched routine')),
+				catchError(this.handleError<Routine[]>('getRoutine', []))
+			);
+	}
+
+	/** サーバーから行動を取得する */
 	getRoutine(action: string, date: string): Observable<Routine[]> {
     const url = `${this.routineUrl}/${action}/${date}`;
 		return this.http.get<Routine[]>(url)

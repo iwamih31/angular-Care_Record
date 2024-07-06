@@ -26,6 +26,7 @@ import { RoutineService } from '../routine.service';
 export class RoutineComponent {
 
   routine: Routine[] = [];
+  date = '予定';
 
   constructor(private routineService: RoutineService) { }
 
@@ -34,25 +35,25 @@ export class RoutineComponent {
   }
 
   getRoutine(): void {
-    this.routineService.getRoutine()
+    this.routineService.getRoutineAll()
     .subscribe(routine => this.routine = routine);
   }
 
-    add( 
+  add( 
     action: string,
     note: string,
     time: string,
   ): void {
-  action = action.trim();
-  note = note.trim();
-  const date = '予定';
-  time = time.trim();
-  const userId = 0;
-  if (!action) { return; }
-  this.routineService.addRoutine({ action, note, date, time, userId } as Routine)
+    action = action.trim();
+    note = note.trim();
+    const date = '予定';
+    time = time.trim();
+    const userId = 0;
+    if (!action) { return; }
+    this.routineService.addRoutine({ action, note, date, time, userId } as Routine)
     .subscribe(routine => {
       this.routine.push(routine);
-    });
+    } );
   }
 
   delete(user: Routine): void {

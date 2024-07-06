@@ -12,6 +12,7 @@ export const routes: Routes = [
 	{ path: 'routine', component: RoutineComponent },
 	{ path: 'dashboard', component: DashboardComponent },
 	{ path: 'detail/:id', component: UserDetailComponent },
-	{ path: 'action/:userId', component:ActionComponent },
-	{ path: 'todo/:todoId', component:ToDoComponent },
+	{ path: 'action/:userId', component: ActionComponent },
+	{ path: 'todo/:todoId', component: ToDoComponent },
+	{ path: 'todo/:action/:date', component: ToDoComponent },
 ];
