@@ -23,7 +23,7 @@ export class RoutineService {
 		return this.http.get<Routine[]>(this.routineUrl)
 			.pipe(
 				tap(routine => this.log('fetched routine')),
-				catchError(this.handleError<Routine[]>('getRoutine', []))
+				catchError(this.handleError<Routine[]>('getRoutineAll', []))
 			);
 	}
 
