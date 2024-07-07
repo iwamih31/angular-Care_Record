@@ -1,16 +1,20 @@
-<div *ngIf="routine">
-  <h2>{{routine.action | uppercase}}</h2>
-  <div>
-    <label id="user-name">利用者名: </label>{{routine.userId}}
-  </div>
-  <div>
-    <label for="routine-time">時間: </label>
-    <input id="routine-time" [(ngModel)]="routine.time" placeholder="Routine time">
-  </div>
-  <div>
-    <label for="routine-note">内容: </label>
-    <input id="routine-note" [(ngModel)]="routine.note" placeholder="Routine note">
-  </div>
-</div>
+<ul class="routine">
+  <li *ngFor="let todo of routine">
+    <div *ngIf="todo">
+      <h2>{{todo.action | uppercase}}</h2>
+      <div>
+        <label id="user-name">利用者名: </label>{{todo.userId}}
+      </div>
+      <div>
+        <label for="routine-time">時間: </label>
+        <input id="routine-time" [(ngModel)]="todo.time" placeholder="Routine time">
+      </div>
+      <div>
+        <label for="routine-note">内容: </label>
+        <input id="routine-note" [(ngModel)]="todo.note" placeholder="Routine note">
+      </div>
+    </div>
+  </li>
+  </ul>
 <button type="button" (click)="goBack()">戻る</button>
 <button type="button" (click)="save()">更新</button>

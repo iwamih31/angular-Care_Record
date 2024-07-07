@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import { NgIf, UpperCasePipe, Location,} from '@angular/common';
+import { NgFor, NgIf, UpperCasePipe, Location,} from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { RoutineService } from '../routine.service';
@@ -11,6 +11,7 @@ import {Routine} from '../routine';
   selector: 'app-todo',
   standalone: true,
     imports: [
+    NgFor,
     NgIf,
     UpperCasePipe,
     FormsModule,
@@ -19,7 +20,8 @@ import {Routine} from '../routine';
   styleUrl: './todo.component.css'
 })
 export class ToDoComponent {
-  @Input() routine?: Routine;
+  routine: Routine[] = [];
+  @Input() todo?: Routine;
 
   constructor(
 		private readonly route: ActivatedRoute,
@@ -28,12 +30,14 @@ export class ToDoComponent {
 	) {}
 
   ngOnInit(): void {
-    this.getRoutine();
+    this.getToDo();
   }
 
-  getRoutine(): void {
-    const todoId = Number(this.route.snapshot.paramMap.get('todoId'));
-    this.routineService.getToDo(todoId)
+    getToDo(): void {
+    const action = this.route.snapshot.paramMap.get('action');
+    const date = this.route.snapshot.paramMap.get('date');
+  if (action !== null && date !== null)
+    this.routineService.getRoutine(action, date)
       .subscribe(routine => this.routine = routine);
   }
 
