@@ -4,7 +4,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { ActionComponent } from './action/action.component';
 import { RoutineComponent } from './routine/routine.component';
-import { ToDoComponent } from './todo/todo.component';
+import { TodoComponent } from './todo/todo.component';
 
 export const routes: Routes = [
 	{ path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -13,6 +13,6 @@ export const routes: Routes = [
 	{ path: 'dashboard', component: DashboardComponent },
 	{ path: 'detail/:id', component: UserDetailComponent },
 	{ path: 'action/:userId', component: ActionComponent },
-	{ path: 'todo/:todoId', component: ToDoComponent },
-	{ path: 'todo/:action/:date', component: ToDoComponent },
+	{ path: 'todo/:todoId', component: TodoComponent },
+	{ path: 'todo/:action/:date', component: TodoComponent },
 ];

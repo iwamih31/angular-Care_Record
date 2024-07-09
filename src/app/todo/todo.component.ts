@@ -19,7 +19,7 @@ import {Routine} from '../routine';
   templateUrl: './todo.component.html',
   styleUrl: './todo.component.css'
 })
-export class ToDoComponent {
+export class TodoComponent {
   routine: Routine[] = [];
   @Input() todo?: Routine;
 
