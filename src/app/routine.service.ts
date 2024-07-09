@@ -51,9 +51,9 @@ export class RoutineService {
 	};
 
 	/** PUT: サーバー上で行動を更新 */
-	updateRoutine(routine: Routine): Observable<any> {
+	updateRoutine(routine: Routine[]): Observable<any> {
 		return this.http.put(this.routineUrl, routine, this.httpOptions).pipe(
-			tap(_ => this.log(`updated routine id=${routine.id}`)),
+			tap(_ => this.log(`updated routine`)),
 			catchError(this.handleError<any>('updateRoutine'))
 		);
 	}
