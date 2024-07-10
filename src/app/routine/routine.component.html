@@ -2,7 +2,7 @@
 <ul class="routine">
   <li *ngFor="let todo of routine">
     <a routerLink="/todo/{{todo.action}}/{{date}}">
-      <span class="badge">{{todo.time}}</span> {{todo.action}}
+      <span class="badge">{{todo.time}}</span> {{todo.action}}：{{todo.note}}
     </a>
     <button type="button" class="delete" title="delete todo" (click)="delete(todo)">x</button>
   </li>
