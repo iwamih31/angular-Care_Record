@@ -26,7 +26,7 @@ import { RoutineService } from '../routine.service';
 export class RoutineComponent {
 
   routine: Routine[] = [];
-  date = '予定';
+  date = '202024/07/01';
 
   constructor(private routineService: RoutineService) { }
 
@@ -35,7 +35,7 @@ export class RoutineComponent {
   }
 
   getRoutine(): void {
-    this.routineService.getRoutineAll()
+    this.routineService.getRoutineList()
     .subscribe(routine => this.routine = routine);
   }
 
@@ -46,7 +46,7 @@ export class RoutineComponent {
   ): void {
     action = action.trim();
     note = note.trim();
-    const date = '予定';
+    const date = this.date;
     time = time.trim();
     const userId = 0;
     if (!action) { return; }
