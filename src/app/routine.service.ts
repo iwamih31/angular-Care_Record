@@ -18,21 +18,35 @@ export class RoutineService {
   	private messageService: MessageService
 	) { }
 
-	/** サーバーから行動を取得する */
+	/** サーバーから全行動を取得する */
 	getRoutineAll(): Observable<Routine[]> {
 		return this.http.get<Routine[]>(this.routineUrl)
 			.pipe(
-				tap(routine => this.log('fetched routine')),
+				tap(routine => this.log('fetched routine all')),
 				catchError(this.handleError<Routine[]>('getRoutineAll', []))
 			);
 	}
 
-	/** サーバーから行動を取得する */
-	getRoutine(action: string, date: string): Observable<Routine[]> {
-    const url = `${this.routineUrl}/${action}/${date}`;
+	/** サーバーから行動リストを取得する */
+	getRoutineList(): Observable<Routine[]> {
+		const url = `${this.routineUrl}_list`;
 		return this.http.get<Routine[]>(url)
 			.pipe(
-				tap(routine => this.log('fetched routine')),
+				tap(routine => this.log('fetched routine list')),
+				catchError(this.handleError<Routine[]>('getRoutineList', []))
+			);
+	}
+
+
+	/** サーバーから行動を取得する（行動, 日にち） */
+	getRoutine(action: string, date: string): Observable<Routine[]> {
+		date = date.replace('/', '');
+    const url = `${this.routineUrl}_${action}_${date}`;
+		return this.http.get<Routine[]>(url)
+			.pipe(
+				tap(routine => this.log(
+					`fetched routine action=${action} date=${date}`
+				)),
 				catchError(this.handleError<Routine[]>('getRoutine', []))
 			);
 	}
