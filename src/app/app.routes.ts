@@ -13,6 +13,6 @@ export const routes: Routes = [
 	{ path: 'dashboard', component: DashboardComponent },
 	{ path: 'detail/:id', component: UserDetailComponent },
 	{ path: 'action/:userId', component: ActionComponent },
-	{ path: 'todo/:todoId', component: TodoComponent },
+	// { path: 'todo/:todoId', component: TodoComponent },
 	{ path: 'todo/:action/:date', component: TodoComponent },
 ];
