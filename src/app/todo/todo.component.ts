@@ -20,8 +20,7 @@ import {Routine} from '../routine';
   styleUrl: './todo.component.css'
 })
 export class TodoComponent {
-  routine: Routine[] = [];
-  @Input() todo?: Routine;
+  @Input() routine?: Routine[];
 
   constructor(
 		private readonly route: ActivatedRoute,
