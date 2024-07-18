@@ -1,16 +1,14 @@
 <ul class="routine">
+  <h2  *ngIf="routine[0]">{{routine[0].action}}</h2>
   <li *ngFor="let todo of routine">
     <div *ngIf="todo">
-      <h2>{{todo.action | uppercase}}</h2>
       <div>
         <label id="user-name">利用者名: </label>{{todo.userId}}
       </div>
       <div>
-        <label for="routine-time">時間: </label>
+        <label for="routine-time"> 時間 </label>
         <input id="routine-time" [(ngModel)]="todo.time" placeholder="Routine time">
-      </div>
-      <div>
-        <label for="routine-note">内容: </label>
+        <label for="routine-note"> 内容 </label>
         <input id="routine-note" [(ngModel)]="todo.note" placeholder="Routine note">
       </div>
     </div>
