@@ -40,7 +40,6 @@ export class RoutineService {
 
 	/** サーバーから行動を取得する（行動, 日付） */
 	getRoutine(action: string, date: string): Observable<Routine[]> {
-		date = date.replace('/', '');
     const url = `${this.routineUrl}_${action}_${date}`;
 		return this.http.get<Routine[]>(url)
 			.pipe(
