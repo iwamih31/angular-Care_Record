@@ -26,3 +26,7 @@ button:disabled {
   color: #ccc;
   cursor: auto;
 }
+
+#routine-time {
+  width: 3rem;
+}
