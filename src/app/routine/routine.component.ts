@@ -26,11 +26,12 @@ import { RoutineService } from '../routine.service';
 export class RoutineComponent {
 
   routine: Routine[] = [];
-  date = '202024/07/01';
+  date = '2024/07/01';
 
   constructor(private routineService: RoutineService) { }
 
   ngOnInit(): void {
+    this.date = this.date.replaceAll('/', '');
     this.getRoutine();
   }
 
