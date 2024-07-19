@@ -54,16 +54,16 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 10, action: '就寝', note: '消灯した時刻', date: '予定', time: '19:30', userId: 0 }
     ];
     const routine_起床_20240701 = [
-      { id: 11, action: '起床', note: '起床', date: '2024/07/01', time: '07:30', userId: 1 },
-      { id: 12, action: '起床', note: '起床', date: '2024/07/01', time: '07:30', userId: 2 },
-      { id: 13, action: '起床', note: '起床', date: '2024/07/01', time: '07:30', userId: 3 },
-      { id: 14, action: '起床', note: '起床', date: '2024/07/01', time: '07:30', userId: 4 },
-      { id: 15, action: '起床', note: '起床', date: '2024/07/01', time: '07:30', userId: 5 },
-      { id: 16, action: '起床', note: '起床', date: '2024/07/01', time: '07:30', userId: 6 },
-      { id: 17, action: '起床', note: '起床', date: '2024/07/01', time: '07:30', userId: 7 },
-      { id: 18, action: '起床', note: '起床', date: '2024/07/01', time: '07:30', userId: 8 },
-      { id: 19, action: '起床', note: '起床', date: '2024/07/01', time: '07:30', userId: 9 },
-      { id: 20, action: '起床', note: '起床', date: '2024/07/01', time: '07:30', userId: 10 },
+      { id: 11, action: '起床', note: '', date: '2024/07/01', time: '07:30', userId: 1 },
+      { id: 12, action: '起床', note: '', date: '2024/07/01', time: '07:30', userId: 2 },
+      { id: 13, action: '起床', note: '', date: '2024/07/01', time: '07:30', userId: 3 },
+      { id: 14, action: '起床', note: '', date: '2024/07/01', time: '07:30', userId: 4 },
+      { id: 15, action: '起床', note: '', date: '2024/07/01', time: '07:30', userId: 5 },
+      { id: 16, action: '起床', note: '', date: '2024/07/01', time: '07:30', userId: 6 },
+      { id: 17, action: '起床', note: '', date: '2024/07/01', time: '07:30', userId: 7 },
+      { id: 18, action: '起床', note: '', date: '2024/07/01', time: '07:30', userId: 8 },
+      { id: 19, action: '起床', note: '', date: '2024/07/01', time: '07:30', userId: 9 },
+      { id: 20, action: '起床', note: '', date: '2024/07/01', time: '07:30', userId: 10 },
     ];
     return {users, actions, routine, routine_list, routine_起床_20240701};
   }
