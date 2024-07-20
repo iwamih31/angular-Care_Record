@@ -31,7 +31,7 @@ export class InMemoryDataService implements InMemoryDbService {
     ];
     const routine = [
       { id: 1, action: '起床', note: '起床した時刻', date: '予定', time: '07:30', userId: 0 },
-      { id: 2, action: '整容', note: '歯磨き、洗顔', date: '予定', time: '08:30', userId: 0 },
+      { id: 2, action: '整容', note: '歯磨き、洗顔', date: '予定', time: '08:00', userId: 0 },
       { id: 3, action: '水分', note: '朝一の水分補給', date: '予定', time: '08:30', userId: 0 },
       { id: 4, action: '朝食', note: '食事の状態確認', date: '予定', time: '09:00', userId: 0 },
       { id: 5, action: '体操', note: '体操内容確認', date: '予定', time: '10:00', userId: 0 },
@@ -43,7 +43,7 @@ export class InMemoryDataService implements InMemoryDbService {
     ];
     const routine_list = [
       { id: 1, action: '起床', note: '起床した時刻', date: '予定', time: '07:30', userId: 0 },
-      { id: 2, action: '整容', note: '歯磨き、洗顔', date: '予定', time: '08:30', userId: 0 },
+      { id: 2, action: '整容', note: '歯磨き、洗顔', date: '予定', time: '08:00', userId: 0 },
       { id: 3, action: '水分', note: '朝一の水分補給', date: '予定', time: '08:30', userId: 0 },
       { id: 4, action: '朝食', note: '食事の状態確認', date: '予定', time: '09:00', userId: 0 },
       { id: 5, action: '体操', note: '体操内容確認', date: '予定', time: '10:00', userId: 0 },
@@ -65,7 +65,19 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 19, action: '起床', note: '', date: '2024/07/01', time: '07:30', userId: 9 },
       { id: 20, action: '起床', note: '', date: '2024/07/01', time: '07:30', userId: 10 },
     ];
-    return {users, actions, routine, routine_list, routine_起床_20240701};
+        const routine_整容_20240701 = [
+      { id: 21, action: '整容', note: '', date: '2024/07/01', time: '08:00', userId: 1 },
+      { id: 22, action: '整容', note: '', date: '2024/07/01', time: '08:00', userId: 2 },
+      { id: 23, action: '整容', note: '', date: '2024/07/01', time: '08:00', userId: 3 },
+      { id: 24, action: '整容', note: '', date: '2024/07/01', time: '08:00', userId: 4 },
+      { id: 25, action: '整容', note: '', date: '2024/07/01', time: '08:00', userId: 5 },
+      { id: 26, action: '整容', note: '', date: '2024/07/01', time: '08:00', userId: 6 },
+      { id: 27, action: '整容', note: '', date: '2024/07/01', time: '08:00', userId: 7 },
+      { id: 28, action: '整容', note: '', date: '2024/07/01', time: '08:00', userId: 8 },
+      { id: 29, action: '整容', note: '', date: '2024/07/01', time: '08:00', userId: 9 },
+      { id: 30, action: '整容', note: '', date: '2024/07/01', time: '08:00', userId: 10 },
+    ];
+    return {users, actions, routine, routine_list, routine_起床_20240701, routine_整容_20240701};
   }
 
   // Overrides the genId method to ensure that a user always has an id.
