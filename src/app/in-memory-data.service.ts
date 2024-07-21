@@ -65,7 +65,7 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 19, action: '起床', note: '', date: '2024/07/01', time: '07:30', userId: 9 },
       { id: 20, action: '起床', note: '', date: '2024/07/01', time: '07:30', userId: 10 },
     ];
-        const routine_整容_20240701 = [
+    const routine_整容_20240701 = [
       { id: 21, action: '整容', note: '', date: '2024/07/01', time: '08:00', userId: 1 },
       { id: 22, action: '整容', note: '', date: '2024/07/01', time: '08:00', userId: 2 },
       { id: 23, action: '整容', note: '', date: '2024/07/01', time: '08:00', userId: 3 },
@@ -77,7 +77,19 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 29, action: '整容', note: '', date: '2024/07/01', time: '08:00', userId: 9 },
       { id: 30, action: '整容', note: '', date: '2024/07/01', time: '08:00', userId: 10 },
     ];
-    return {users, actions, routine, routine_list, routine_起床_20240701, routine_整容_20240701};
+    const routine_水分_20240701 = [
+      { id: 31, action: '整容', note: '', date: '2024/07/01', time: '08:00', userId: 1 },
+      { id: 32, action: '整容', note: '', date: '2024/07/01', time: '08:00', userId: 2 },
+      { id: 33, action: '整容', note: '', date: '2024/07/01', time: '08:00', userId: 3 },
+      { id: 34, action: '整容', note: '', date: '2024/07/01', time: '08:00', userId: 4 },
+      { id: 35, action: '整容', note: '', date: '2024/07/01', time: '08:00', userId: 5 },
+      { id: 36, action: '整容', note: '', date: '2024/07/01', time: '08:00', userId: 6 },
+      { id: 37, action: '整容', note: '', date: '2024/07/01', time: '08:00', userId: 7 },
+      { id: 38, action: '整容', note: '', date: '2024/07/01', time: '08:00', userId: 8 },
+      { id: 39, action: '整容', note: '', date: '2024/07/01', time: '08:00', userId: 9 },
+      { id: 40, action: '整容', note: '', date: '2024/07/01', time: '08:00', userId: 10 },
+    ];
+    return {users, actions, routine, routine_list, routine_起床_20240701, routine_整容_20240701, routine_水分_20240701};
   }
 
   // Overrides the genId method to ensure that a user always has an id.
