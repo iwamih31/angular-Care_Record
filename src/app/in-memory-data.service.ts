@@ -101,7 +101,29 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 49, action: '朝食', note: '', date: '2024/07/01', time: '09:00', userId: 9 },
       { id: 50, action: '朝食', note: '', date: '2024/07/01', time: '09:00', userId: 10 },
     ];
-    return {users, actions, routine, routine_list, routine_起床_20240701, routine_整容_20240701, routine_水分_20240701, routine_朝食_20240701};
+    const routine_体操_20240701 = [
+      { id: 51, action: '体操', note: '', date: '2024/07/01', time: '10:00', userId: 1 },
+      { id: 52, action: '体操', note: '', date: '2024/07/01', time: '10:00', userId: 2 },
+      { id: 53, action: '体操', note: '', date: '2024/07/01', time: '10:00', userId: 3 },
+      { id: 54, action: '体操', note: '', date: '2024/07/01', time: '10:00', userId: 4 },
+      { id: 55, action: '体操', note: '', date: '2024/07/01', time: '10:00', userId: 5 },
+      { id: 56, action: '体操', note: '', date: '2024/07/01', time: '10:00', userId: 6 },
+      { id: 57, action: '体操', note: '', date: '2024/07/01', time: '10:00', userId: 7 },
+      { id: 58, action: '体操', note: '', date: '2024/07/01', time: '10:00', userId: 8 },
+      { id: 59, action: '体操', note: '', date: '2024/07/01', time: '10:00', userId: 9 },
+      { id: 60, action: '体操', note: '', date: '2024/07/01', time: '10:00', userId: 10 },
+    ];
+    return {
+      users, 
+      actions, 
+      routine, 
+      routine_list, 
+      routine_起床_20240701, 
+      routine_整容_20240701, 
+      routine_水分_20240701, 
+      routine_朝食_20240701, 
+      routine_体操_20240701
+    };
   }
 
   // Overrides the genId method to ensure that a user always has an id.
