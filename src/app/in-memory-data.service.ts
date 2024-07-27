@@ -113,6 +113,18 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 59, action: '体操', note: '', date: '2024/07/01', time: '10:00', userId: 9 },
       { id: 60, action: '体操', note: '', date: '2024/07/01', time: '10:00', userId: 10 },
     ];
+    const routine_昼食_20240701 = [
+      { id: 61, action: '昼食', note: '', date: '2024/07/01', time: '12:00', userId: 1 },
+      { id: 62, action: '昼食', note: '', date: '2024/07/01', time: '12:00', userId: 2 },
+      { id: 63, action: '昼食', note: '', date: '2024/07/01', time: '12:00', userId: 3 },
+      { id: 64, action: '昼食', note: '', date: '2024/07/01', time: '12:00', userId: 4 },
+      { id: 65, action: '昼食', note: '', date: '2024/07/01', time: '12:00', userId: 5 },
+      { id: 66, action: '昼食', note: '', date: '2024/07/01', time: '12:00', userId: 6 },
+      { id: 67, action: '昼食', note: '', date: '2024/07/01', time: '12:00', userId: 7 },
+      { id: 68, action: '昼食', note: '', date: '2024/07/01', time: '12:00', userId: 8 },
+      { id: 69, action: '昼食', note: '', date: '2024/07/01', time: '12:00', userId: 9 },
+      { id: 70, action: '昼食', note: '', date: '2024/07/01', time: '12:00', userId: 10 },
+    ];
     return {
       users, 
       actions, 
@@ -122,7 +134,8 @@ export class InMemoryDataService implements InMemoryDbService {
       routine_整容_20240701, 
       routine_水分_20240701, 
       routine_朝食_20240701, 
-      routine_体操_20240701
+      routine_体操_20240701,
+      routine_昼食_20240701
     };
   }
 
