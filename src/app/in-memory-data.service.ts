@@ -126,16 +126,28 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 70, action: '昼食', note: '', date: '2024/07/01', time: '12:00', userId: 10 },
     ];
     const routine_運動_20240701 = [
-      { id: 71, action: '昼食', note: '', date: '2024/07/01', time: '14:30', userId: 1 },
-      { id: 72, action: '昼食', note: '', date: '2024/07/01', time: '14:30', userId: 2 },
-      { id: 73, action: '昼食', note: '', date: '2024/07/01', time: '14:30', userId: 3 },
-      { id: 74, action: '昼食', note: '', date: '2024/07/01', time: '14:30', userId: 4 },
-      { id: 75, action: '昼食', note: '', date: '2024/07/01', time: '14:30', userId: 5 },
-      { id: 76, action: '昼食', note: '', date: '2024/07/01', time: '14:30', userId: 6 },
-      { id: 77, action: '昼食', note: '', date: '2024/07/01', time: '14:30', userId: 7 },
-      { id: 78, action: '昼食', note: '', date: '2024/07/01', time: '14:30', userId: 8 },
-      { id: 79, action: '昼食', note: '', date: '2024/07/01', time: '14:30', userId: 9 },
-      { id: 80, action: '昼食', note: '', date: '2024/07/01', time: '14:30', userId: 10 },
+      { id: 71, action: '運動', note: '', date: '2024/07/01', time: '14:30', userId: 1 },
+      { id: 72, action: '運動', note: '', date: '2024/07/01', time: '14:30', userId: 2 },
+      { id: 73, action: '運動', note: '', date: '2024/07/01', time: '14:30', userId: 3 },
+      { id: 74, action: '運動', note: '', date: '2024/07/01', time: '14:30', userId: 4 },
+      { id: 75, action: '運動', note: '', date: '2024/07/01', time: '14:30', userId: 5 },
+      { id: 76, action: '運動', note: '', date: '2024/07/01', time: '14:30', userId: 6 },
+      { id: 77, action: '運動', note: '', date: '2024/07/01', time: '14:30', userId: 7 },
+      { id: 78, action: '運動', note: '', date: '2024/07/01', time: '14:30', userId: 8 },
+      { id: 79, action: '運動', note: '', date: '2024/07/01', time: '14:30', userId: 9 },
+      { id: 80, action: '運動', note: '', date: '2024/07/01', time: '14:30', userId: 10 },
+    ];
+    const routine_おやつ_20240701 = [
+      { id: 81, action: 'おやつ', note: '', date: '2024/07/01', time: '15:00', userId: 1 },
+      { id: 82, action: 'おやつ', note: '', date: '2024/07/01', time: '15:00', userId: 2 },
+      { id: 83, action: 'おやつ', note: '', date: '2024/07/01', time: '15:00', userId: 3 },
+      { id: 84, action: 'おやつ', note: '', date: '2024/07/01', time: '15:00', userId: 4 },
+      { id: 85, action: 'おやつ', note: '', date: '2024/07/01', time: '15:00', userId: 5 },
+      { id: 86, action: 'おやつ', note: '', date: '2024/07/01', time: '15:00', userId: 6 },
+      { id: 87, action: 'おやつ', note: '', date: '2024/07/01', time: '15:00', userId: 7 },
+      { id: 88, action: 'おやつ', note: '', date: '2024/07/01', time: '15:00', userId: 8 },
+      { id: 89, action: 'おやつ', note: '', date: '2024/07/01', time: '15:00', userId: 9 },
+      { id: 90, action: 'おやつ', note: '', date: '2024/07/01', time: '15:00', userId: 10 },
     ];
     return {
       users, 
@@ -148,7 +160,8 @@ export class InMemoryDataService implements InMemoryDbService {
       routine_朝食_20240701, 
       routine_体操_20240701,
       routine_昼食_20240701,
-      routine_運動_20240701
+      routine_運動_20240701,
+      routine_おやつ_20240701
     };
   }
 
